@@ -1,25 +1,22 @@
-let cep = document.querySelector('#cep')
-let rua = document.querySelector('#rua')
-let bairro = document.querySelector('#bairro')
-let cidade = document.querySelector('#cidade')
-let estado = document.querySelector('#estado')
+let cep = document.querySelector('#cep');
+let rua = document.querySelector('#rua');
+let bairro = document.querySelector('#bairro');
+let cidade = document.querySelector('#cidade'); // Certifique-se de que o campo com o ID 'cidade' exista.
+let estado = document.querySelector('#estado');
 
-
-cep.value ="";
+cep.value = "";
 
 cep.addEventListener('blur', function(e) {
     let cep = e.target.value;
     let script = document.createElement('script');
-    script.src = 'https://viacep.com.br/ws/'+cep+'/json/?callback=popularForm';
-    
-    document.body.appendChild(script);
+    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=popularForm';
 
+    document.body.appendChild(script);
 });
 
-function popularForm(resposta){
-
-    if("erro" in resposta){
-        alert('CEp não encontrado')
+function popularForm(resposta) {
+    if ("erro" in resposta) {
+        alert('CEP não encontrado');
         return;
     }
 
@@ -28,6 +25,6 @@ function popularForm(resposta){
     bairro.value = resposta.bairro;
     cidade.value = resposta.localidade;
     estado.value = resposta.uf;
-
 }
+
 

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1 class="h1"> Cadastro </h1>
+    <div class="row">
+        <form id="dataForm" class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name" class="active">Nome</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name" class="active">Sobrenome</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email" class="active">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="telefone" type="tel" class="validate">
+                    <label for="telefone" class="active">Telefone</label>
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password" class="active">Senha</label>
+              </div>
+          </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="cep" id="cep">
+                    <label for="cep">CEP</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="bairro" type="text" name="bairro">
+                    <label for="bairro">Bairro</label>
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                  <input id="cidade" type="text" name="cidade">
+                  <label for="cidade">Cidade</label>
+              </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="estado" type="text" name="estado">
+                    <label for="estado">Estado</label>
+                </div>
+                <div class="input-field col s6">
+                    <label for="rua">Rua</label>
+                    <input id="rua" type="text" name="rua">
+                </div>
+            </div>
+            <input id="botao" type="submit" value="Salvar" src="login.html">
+        </form>
+    </div>
+    <div id="welcome">
+        <span id="username"></span>
+    </div>
+    <script src="js/materialize.js"></script>
+    <script src="js/materialize.min.js"></script>
+<script>
+   
+    document.getElementById("dataForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+       
+        var nome = document.getElementById("first_name").value;
+        var email = document.getElementById("email").value;
+        var telefone = document.getElementById("telefone").value;
+        var senha = document.getElementById("password").value;
+        var cep = document.getElementById("cep").value;
+        var bairro = document.getElementById("bairro").value;
+        var cidade = document.getElementById("cidade").value;
+        var estado = document.getElementById("estado").value;
+        var rua = document.getElementById("rua").value;
+
+        localStorage.setItem("nome", nome);
+        localStorage.setItem("email", email);
+        localStorage.setItem("telefone", telefone);
+        localStorage.setItem("password", senha);
+        localStorage.setItem("cep", cep);
+        localStorage.setItem("bairro", bairro);
+        localStorage.setItem("cidade", cidade);
+        localStorage.setItem("estado", estado);
+        localStorage.setItem("rua", rua);
+
+       
+        sessionStorage.setItem("nome", nome);
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("telefone", telefone);
+        sessionStorage.setItem("password", senha);
+        sessionStorage.setItem("cep", cep);
+        sessionStorage.setItem("bairro", bairro);
+        sessionStorage.setItem("cidade", cidade);
+        sessionStorage.setItem("estado", estado);
+        sessionStorage.setItem("rua", rua);
+
+        alert("Dados salvos com sucesso!");
+        document.getElementById("dataForm").reset();
+    });
+
+   
+    document.getElementById("first_name").value = localStorage.getItem("nome") || "";
+    document.getElementById("email").value = localStorage.getItem("email") || "";
+    document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
+    document.getElementById("password").value = localStorage.getItem("password") || "";
+    document.getElementById("cep").value = localStorage.getItem("cep") || "";
+    document.getElementById("bairro").value = localStorage.getItem("bairro") || "";
+    document.getElementById("cidade").value = localStorage.getItem("cidade") || "";
+    document.getElementById("estado").value = localStorage.getItem("estado") || "";
+    document.getElementById("rua").value = localStorage.getItem("rua") || "";
+
+    
+
+
+    const dataForm = document.querySelector("dataForm")
+    const welcomeContainer = document.querySelector("welcome")
+    const logoutBtn = document.querySelector("#logout")
+
+
+
+   
+
+   
+
+    
+</script>
+<script src="Consultacep.js"></script>
+</body>
+</html>
