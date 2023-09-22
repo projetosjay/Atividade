@@ -11,7 +11,7 @@
 <body>
     <h1 class="h1"> Login </h1>
     <div class="row">
-        <form id="dataForm" class="col s12">
+        <form id="loginForm" class="col s12">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" type="email" class="validate">
@@ -24,16 +24,22 @@
                     <label for="password" class="active">Senha</label>
                 </div>
             </div>
-            <input type="submit" value="Salvar">
-            <button type="button" src="index.html">Cadastro</button>
+            <input id="button" type="submit" value="Salvar">
+           
         </form>
     </div>
     <script src="js/materialize.js"></script>
     <script src="js/materialize.min.js"></script>
     <script>
-        document.getElementById("dataForm").addEventListener("submit", function(event) {
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            
+            document.getElementById("button").addEventListener("click", function() {
+            // Especifique o URL da página para a qual deseja redirecionar o usuário
+            var onclick = "pagina.html"; // Substitua pelo URL desejado
+
+            // Redirecionar para a página especificada
+            window.location.href = url;
+        });
             var email = document.getElementById("email").value;
             var senha = document.getElementById("password").value;
             
@@ -44,7 +50,7 @@
             sessionStorage.setItem("password", senha);
             
             alert("Dados salvos com sucesso!");
-            document.getElementById("dataForm").reset();
+            document.getElementById("loginForm").reset();
         });
         
         document.getElementById("email").value = localStorage.getItem("email") || "";
